@@ -1,0 +1,11 @@
+.coverage
+venv/
+__pycache__/
+.vscode/
+*.pyc
+*.csv
+*.txt
+*.log
+*.lock
+.credentials.json
+temp.py

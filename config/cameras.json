@@ -1,0 +1,128 @@
+[
+    {
+        "rocServer": "rocdemo1",
+        "enable": true,
+        "cameraId": "{059643c9-f5c1-43f1-9067-c6f73c12582d}",
+        "probeFaceCameraName": "AxisCamera-P3225 121-221",
+        "cameraIp": "192.168.1.221",
+        "port": 554,
+        "username": "root",
+        "password": "root",
+        "path": "axis-media/media.amp",
+        "readerName": "RPi4-reader_121-97",
+        "readerIp": "192.168.1.97",
+        "readerSerial": "251096701259696",
+        "verifIdent": false,
+        "updateZone": false,
+        "fromZone": 9,
+        "toZone": 10,
+        "watchlistIds": {
+            "Test-BOLO-01": "682616ca561d47001406055c"
+        }
+    },
+    {
+        "rocServer": "rocdemo1",
+        "enable": true,
+        "cameraId": "{15ebb7b7-e653-4a0b-946b-b9b000f1b7f3}",
+        "probeFaceCameraName": "AxisCamera-P1204 121-203",
+        "cameraIp": "192.168.1.203",
+        "port": 554,
+        "username": "root",
+        "password": "root",
+        "path": "axis-media/media.amp",
+        "readerName": "RPi4-reader_121-132",
+        "readerIp": "192.168.1.132",
+        "readerSerial": "242606368057063",
+        "verifIdent": false,
+        "updateZone": false,
+        "fromZone": 9,
+        "toZone": 10,
+        "watchlistIds": {
+            "Test-BOLO-01": "682616ca561d47001406055c"
+        }
+    },
+    {
+        "rocServer": "rocdemo1",
+        "enable": true,
+        "cameraId": "{1835cdb7-e5ea-412c-88ab-e153d5deed8c}",
+        "probeFaceCameraName": "AxisCamera-P1265 121-90",
+        "cameraIp": "192.168.1.90",
+        "port": 554,
+        "username": "root",
+        "password": "root",
+        "path": "axis-media/media.amp",
+        "readerName": "RPi4-reader_121-118",
+        "readerIp": "192.168.1.118",
+        "readerSerial": "251096701259753",
+        "verifIdent": false,
+        "updateZone": false,
+        "fromZone": 9,
+        "toZone": 10,
+        "watchlistIds": {
+            "Test-BOLO-01": "682616ca561d47001406055c"
+        }
+    },
+    {
+        "rocServer": "rocdemo2",
+        "enable": false,
+        "cameraId": "{c96c2e3f-7c3c-4ef7-b21d-e4849a289c09}",
+        "probeFaceCameraName": "AxisCamera-P1204 133-203",
+        "cameraIp": "192.168.1.203",
+        "port": 554,
+        "username": "root",
+        "password": "root",
+        "path": "axis-media/media.amp",
+        "readerName": "RPi4-reader_133-97",
+        "readerIp": "192.168.1.97",
+        "readerSerial": "251096701259696",
+        "verifIdent": false,
+        "updateZone": false,
+        "fromZone": 9,
+        "toZone": 10,
+        "watchlistIds": {
+            "Test-BOLO-01": "68057e7ee41d1200141e419e"
+        }
+    },
+    {
+        "rocServer": "rocdemo2",
+        "enable": false,
+        "cameraId": "{764eec19-8eb1-4d33-8c93-c9a0024845c9}",
+        "probeFaceCameraName": "AxisCamera-P3225 133-221",
+        "cameraIp": "192.168.1.221",
+        "port": 554,
+        "username": "root",
+        "password": "root",
+        "path": "axis-media/media.amp",
+        "readerName": "RPi4-reader_133-118",
+        "readerIp": "192.168.1.118",
+        "readerSerial": "251096701259753",
+        "verifIdent": false,
+        "updateZone": false,
+        "fromZone": 9,
+        "toZone": 10,
+        "watchlistIds": {
+            "Test-BOLO-01": "68057e7ee41d1200141e419e"
+        }
+    },
+    {
+        "rocServer": "rocdemo2",
+        "enable": false,
+        "cameraId": "{1fcf7e6e-2db2-47f5-b6e2-d48d4075ff38}",
+        "probeFaceCameraName": "AxisCamera-P1265 133-90",
+        "cameraIp": "192.168.1.90",
+        "port": 554,
+        "username": "root",
+        "password": "root",
+        "path": "axis-media/media.amp",
+        "readerName": "RPi4-reader_133-118",
+        "readerIp": "192.168.1.118",
+        "readerSerial": "251096701259753",
+        "verifIdent": false,
+        "updateZone": false,
+        "fromZone": 9,
+        "toZone": 10,
+        "watchlistIds": {
+            "Test-BOLO-01": "68057e7ee41d1200141e419e"
+        }
+    }
+]

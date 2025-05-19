@@ -1,0 +1,106 @@
+[
+    {
+        "_id": "682612A59CF19C2175BA960B",
+        "enable": true,
+        "firstName": "Gary",
+        "lastName": "Jones",
+        "faceId": "e72f2a5411762907b2f6cd72250a2ff1f70c6be5",
+        "customerId": "6669F917B586600014299746",
+        "employeeId": "740717",
+        "cardNumbers": [
+            "10811"
+        ],
+        "pinNumber": "123654",
+        "accessZones": [
+            7,
+            9,
+            10,
+            11
+        ],
+        "current_access_zone": 0,
+        "free_movement": true,
+        "verifIdent": false,
+        "userGroups": {
+            "group1": "default",
+            "group2": "user"
+        }
+    },
+    {
+        "_id": "682612A59CF19C2175BA960D",
+        "enable": true,
+        "firstName": "Wilma",
+        "lastName": "Baird",
+        "faceId": "e8420fcaf9bb75b294c3145fdfa543e4fd1f3b26",
+        "customerId": "6669F917B586600014299752",
+        "employeeId": "660208",
+        "cardNumbers": [
+            "10812"
+        ],
+        "pinNumber": "54321",
+        "accessZones": [
+            7,
+            9,
+            10,
+            11
+        ],
+        "current_access_zone": 0,
+        "free_movement": true,
+        "verifIdent": false,
+        "userGroups": {
+            "group1": "default",
+            "group2": "user"
+        }
+    },
+    {
+        "_id": "682612A59CF19C2175BA960C",
+        "enable": true,
+        "firstName": "John",
+        "lastName": "Baird",
+        "faceId": "c76139e5bbedb049ddb23b89b79e4d3147771707",
+        "customerId": "6669F917B586600014299748",
+        "employeeId": "620827",
+        "cardNumbers": [
+            "10810"
+        ],
+        "pinNumber": "12345",
+        "accessZones": [
+            7,
+            9,
+            10,
+            11
+        ],
+        "current_access_zone": 0,
+        "free_movement": true,
+        "verifIdent": false,
+        "userGroups": {
+            "group1": "default",
+            "group2": "user"
+        }
+    },
+    {
+        "_id": "682613F89CF19C2175BAB6D9",
+        "enable": true,
+        "firstName": "Ruan",
+        "lastName": "Baird",
+        "faceId": "f3b09f4af1605921d752e5f5de142b77a0c4f675",
+        "customerId": "667056BCE3A8CA0014452CFA",
+        "employeeId": "940721",
+        "cardNumbers": [
+            "10813"
+        ],
+        "pinNumber": "12321",
+        "accessZones": [
+            7,
+            9,
+            10,
+            11
+        ],
+        "current_access_zone": 0,
+        "free_movement": true,
+        "verifIdent": false,
+        "userGroups": {
+            "group1": "default",
+            "group2": "user"
+        }
+    }
+]

@@ -1,0 +1,22 @@
+{
+    "rocServer": "rocdemo1",
+    "enable": true,
+    "cameraId": "{15ebb7b7-e653-4a0b-946b-b9b000f1b7f3}",
+    "probeFaceCameraName": "AxisCamera-P1204 121-203",
+    "cameraIp": "192.168.1.203",
+    "port": 554,
+    "username": "root",
+    "password": "root",
+    "path": "axis-media/media.amp",
+    "readerName": "RPi4-reader_121-132",
+    "readerIp": "192.168.1.132",
+    "readerSerial": "242606368057063",
+    "verifIdent": false,
+    "updateZone": false,
+    "fromZone": 9,
+    "toZone": 10,
+    "watchlistIds": {
+        "Test-BOLO-01": "682616ca561d47001406055c"
+    },
+    "_id": "6826345647e113cc908e3555"
+}

@@ -1,0 +1,64 @@
+{
+    "this_file": {
+        "file_name": "config.json",
+        "created": "2024-09-26 15:02:05",
+        "updated": "2024-09-26 15:02:05"
+    },
+    "print_ctl": {
+        "util_prt": true,
+        "util_prt0": false
+    },
+    "general_settings": {
+        "raspberry_pi": false,
+        "number_format": "dec",
+        "weekday_format": "%a",
+        "time_format": "%H:%M:%S",
+        "temperature_units": "degC",
+        "mongo_authentication": true,
+        "datim_format": "%Y/%m/%d  %H:%M:%S"
+    },
+    "access_settings": {
+        "perimeter_zone": 9,
+        "access_zone_function": true,
+        "anti_passback_function": false,
+        "watchlist_verif_dict": {
+            "Test-BOLO-01 121": "66f947a6a09a0700140df91c",
+            "Test-BOLO-01 133": "66f03c291ade940014c17c70"
+        }
+    },
+    "mqtt_settings": {
+        "enable": true,
+        "version": "v3",
+        "keepalive": 60,
+        "transport": "tcp",
+        "encryption": false,
+        "mqtt_client_key": "",
+        "topic": "roc/access",
+        "password": "mqtt123!",
+        "authentication": true,
+        "username": "mqtt_user",
+        "server_certificate": "",
+        "client_certificate": "",
+        "broker": "localhost",
+        "offline_reporting": true,
+        "paho_mqtt_file": "mqtt.log",
+        "certs_location": "~/certs/",
+        "status_reporting_enable": true,
+        "datim_format": "%Y-%m-%dT%H:%M:%S"
+    },
+    "mqtt_subscribe_test_clients": {
+        "enable": true,
+        "client-59": "49269298793565",
+        "client-42": "49269298793942",
+        "client-152": "49269298794244",
+        "client-136": "49269298794223",
+        "client-34": "49269298794129"
+    },
+    "system_information": {
+        "hostname": "rocdemo1",
+        "ip_address": "192.168.1.121",
+        "serial_number": "107289768771626",
+        "program_version": "ROC-Access-Server V1.1.12",
+        "program_updated": "2025-05-11 23:51:37"
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "rocServer": "rocdemo1",
+    "enable": true,
+    "cameraId": "{059643c9-f5c1-43f1-9067-c6f73c12582d}",
+    "probeFaceCameraName": "AxisCamera-P3225 121-221",
+    "cameraIp": "192.168.1.221",
+    "port": 554,
+    "username": "root",
+    "password": "root",
+    "path": "axis-media/media.amp",
+    "readerName": "RPi4-reader_121-97",
+    "readerIp": "192.168.1.97",
+    "readerSerial": "251096701259696",
+    "verifIdent": false,
+    "updateZone": false,
+    "fromZone": 9,
+    "toZone": 10,
+    "watchlistIds": {
+        "Test-BOLO-01": "682616ca561d47001406055c"
+    },
+    "_id": "6826345647e113cc908e3554"
+}

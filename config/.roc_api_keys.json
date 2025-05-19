@@ -1,0 +1,33 @@
+{
+    "file": {
+        "file_name": ".roc_api_keys.json",
+        "created": "2025-05-11 08:45:00",
+        "updated": "2025-05-11 08:45:00"
+    },
+    "roc_watch_api_keys": {
+        "api_keys-server_121": {
+            "server": "rocdemo1",
+            "enabled": true,
+            "hostname": "rocdemo1",
+            "ip_address": "192.168.1.121",
+            "idkey": "Y7KHEAJ0ZRA5BDJYRKOIXDQ1SKEK6IP655HEOKGG",
+            "secretkey": "1QQaIkt7tMAVmVVcWqIX4H3irhi2yk1tisyPi9eSWQ0S10JQbOb3eDbQckMJWK5Kt0",
+            "label": "Admin API",
+            "notes": "Created to access all API Calls for 192.168.1.121:  2025/05/11",
+            "__v": 0,
+            "_userAccessId": "681b7842bc0e9c0013157e1f"
+        },
+        "api_keys-server_133": {
+            "server": "rocdemo2",
+            "enabled": true,
+            "hostname": "rocdemo2",
+            "ip_address": "192.168.1.133",
+            "idkey": "5ZID3QN0N8N97J0HLY19PPHQ95U7ZYPDQU8H1JFE",
+            "secretkey": "RVfhY9GoWuSsNUmigX3903A0uRL00B7vi7w00rKqXSZ3OEPIrjmHXE65yWMylLJxJ",
+            "label": "Admin API",
+            "notes": "Created to access all API Calls for 192.168.1.133:  2025/05/11",
+            "__v": 0,
+            "_userAccessId": "680558a2d3b56f001413fc3e"
+        }
+    }
+}

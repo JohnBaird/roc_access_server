@@ -1,0 +1,26 @@
+{
+    "_id": "6827d5882a8f814a84cc38fd",
+    "enable": true,
+    "firstName": "Ruan",
+    "lastName": "Baird",
+    "faceId": "f3b09f4af1605921d752e5f5de142b77a0c4f675",
+    "customerId": "667056BCE3A8CA0014452CFA",
+    "employeeId": "940721",
+    "cardNumbers": [
+        "10813"
+    ],
+    "pinNumber": "12321",
+    "accessZones": [
+        7,
+        9,
+        10,
+        11
+    ],
+    "current_access_zone": 0,
+    "free_movement": true,
+    "verifIdent": false,
+    "userGroups": {
+        "group1": "default",
+        "group2": "user"
+    }
+}
