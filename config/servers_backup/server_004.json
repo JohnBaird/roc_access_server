@@ -1,0 +1,8 @@
+{
+    "type": "qr",
+    "enable": false,
+    "serverName": "qr_reader1",
+    "serialNumber": "49269302993601",
+    "hostname": "192.168.1.133",
+    "_id": "685af537ae5ce10a2de558cf"
+}

@@ -2,6 +2,13 @@
     {
         "type": "roc",
         "enable": true,
+        "serverName": "beelink-02",
+        "serialNumber": "66440561491705",
+        "hostname": "192.168.1.104"
+    },
+    {
+        "type": "roc",
+        "enable": false,
         "serverName": "rocdemo1",
         "serialNumber": "83544762879823",
         "hostname": "192.168.1.121"

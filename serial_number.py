@@ -38,7 +38,7 @@ class SerialNumber (object):
         print (f"Calculated Serial Number: {serial_number}") if self.util_prt0 else None
         
         # return serial_number
-        return "217588503471049"
+        return "10440561491705"
 #--------------------------------------------------------------
     def get_client_id (self):
         # Get a unique identifier as bytes

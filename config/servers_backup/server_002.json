@@ -1,8 +1,8 @@
 {
     "type": "roc",
     "enable": false,
-    "serverName": "rocdemo2",
-    "serialNumber": "91877199292055",
-    "hostname": "192.168.1.133",
-    "_id": "682241c2180ff0244311e426"
+    "serverName": "rocdemo1",
+    "serialNumber": "83544762879823",
+    "hostname": "192.168.1.121",
+    "_id": "685af537ae5ce10a2de558cd"
 }

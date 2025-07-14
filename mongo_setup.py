@@ -1,4 +1,4 @@
-# updated: 2025-05-17 00:09:20
+# updated: 2025-06-25 17:12:46
 # created: 2025-05-05 15:17:49
 # filename: mongo_setup.py
 #--------------------------------------------------------------------------------------------------------------
@@ -304,7 +304,7 @@ class MongoSetupTool:
 
             for cam in all_cameras:
                 name = cam.get("probeFaceCameraName", "Unnamed")
-                ip = cam.get("hostname", "Unknown IP")
+                ip = cam.get("cameraIp", "Unknown IP")
                 self.insLogger.log_info(msg=f"[MongoSetupTool--query_list_all_cameras] - {name} @ {ip}")
 
         except Exception as e:

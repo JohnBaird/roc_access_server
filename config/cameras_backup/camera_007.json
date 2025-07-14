@@ -1,9 +1,9 @@
 {
     "rocServer": "rocdemo2",
     "enable": false,
-    "cameraId": "{764eec19-8eb1-4d33-8c93-c9a0024845c9}",
-    "probeFaceCameraName": "AxisCamera-P3225 133-221",
-    "cameraIp": "192.168.1.221",
+    "cameraId": "{1fcf7e6e-2db2-47f5-b6e2-d48d4075ff38}",
+    "probeFaceCameraName": "AxisCamera-P1265 133-90",
+    "cameraIp": "192.168.1.90",
     "port": 554,
     "username": "root",
     "password": "root",
@@ -18,5 +18,5 @@
     "watchlistIds": {
         "Test-BOLO-01": "68057e7ee41d1200141e419e"
     },
-    "_id": "685af2d9ccd13d5fee63089f"
+    "_id": "685af2d9ccd13d5fee6308a0"
 }

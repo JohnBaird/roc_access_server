@@ -52,48 +52,21 @@
         }
     },
     {
-        "_id": "682612A59CF19C2175BA960C",
+        "_id": "685ad21b2b09d80014cf3185",
         "enable": true,
         "firstName": "John",
         "lastName": "Baird",
-        "faceId": "c76139e5bbedb049ddb23b89b79e4d3147771707",
-        "customerId": "6669F917B586600014299748",
-        "employeeId": "620827",
+        "faceId": "685ABD3615A570D71198143A",
+        "customerId": "12345",
+        "employeeId": "12345",
         "cardNumbers": [
             "10810"
         ],
         "pinNumber": "12345",
         "accessZones": [
-            7,
+            8,
             9,
-            10,
-            11
-        ],
-        "current_access_zone": 0,
-        "free_movement": true,
-        "verifIdent": false,
-        "userGroups": {
-            "group1": "default",
-            "group2": "user"
-        }
-    },
-    {
-        "_id": "682613F89CF19C2175BAB6D9",
-        "enable": true,
-        "firstName": "Ruan",
-        "lastName": "Baird",
-        "faceId": "f3b09f4af1605921d752e5f5de142b77a0c4f675",
-        "customerId": "667056BCE3A8CA0014452CFA",
-        "employeeId": "940721",
-        "cardNumbers": [
-            "10813"
-        ],
-        "pinNumber": "12321",
-        "accessZones": [
-            7,
-            9,
-            10,
-            11
+            10
         ],
         "current_access_zone": 0,
         "free_movement": true,

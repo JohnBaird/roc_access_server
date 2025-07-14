@@ -72,6 +72,9 @@ class MQTToutQueue (object):
         self.anti_passback_function = access_settings_dict.get("anti_passback_function", False)
         self.watchlist_verif_dict   = access_settings_dict.get("watchlist_verif_dict", {})
 
+        self.insLogger.log_info (
+            msg = f"[MQTToutQueue __init__] -- self.watchlist_verif_dict: {self.watchlist_verif_dict}")
+
         if self.util_prt0:
             print (f"paho_enable: {self.paho_enable}")
             print (f"paho_mqtt_file: {self.paho_mqtt_file}")
@@ -500,6 +503,10 @@ class MQTToutQueue (object):
                 verif_ident   = userVerifIdent or cameraVerifIdent or watchlistVerifIdent
             )
             self.insMQTTbroker.mqtt_publish_access_response(payload)
+
+            self.insLogger.log_info(
+                msg = f"[MQTToutQueue--handle_face_match] Display Verif_Ident Components -- userVerifIdent: {userVerifIdent}, cameraVerifIdent: {cameraVerifIdent}, watchlistVerifIdent: {watchlistVerifIdent}"
+            )
  
             self.insLogger.log_info(
                 msg = f"[MQTToutQueue--handle_face_match] Published access response: link_serial_number: {link_serial_number}, faceId: {faceId}, found: {found}"

@@ -1,6 +1,7 @@
-# updated: 2025-05-17 00:25:48
+# updated: 2025-06-25 18:05:33
 # created: 2024-06-13 14:30:00
 # filename: main.py
+
 #--------------------------------------------------------------------------------------------------------------
 from time import sleep
 from queue import Queue
@@ -15,6 +16,7 @@ from config_update import ConfigUpdate
 from mqtt_out_queue import MQTToutQueue
 from mongo_query_config import MongoQueryConfig
 from mongo_query_general import MongoQueryGeneral       # on the fly db-queries and db-actions
+
 #--------------------------------------------------------------------------------------------------------------
 class Main (object):
     def __init__ (
@@ -22,8 +24,8 @@ class Main (object):
             dtt = datetime.now ()
         )-> None:
 
-        program_version = f"ROC-Access-Server V1.1.15"
-        program_updated = "2025-05-17 00:25:48"
+        program_version = f"ROC-Access-Server V1.1.16"
+        program_updated = "2025-06-25 18:05:33"
 
         insConfigInit = Config_Init()
         ini_general_variables_dict = insConfigInit.get_variables_dict (category="general")  # from config.ini file

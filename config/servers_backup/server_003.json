@@ -1,8 +1,8 @@
 {
-    "type": "qr",
+    "type": "roc",
     "enable": false,
-    "serverName": "qr_reader1",
-    "serialNumber": "49269302993601",
+    "serverName": "rocdemo2",
+    "serialNumber": "91877199292055",
     "hostname": "192.168.1.133",
-    "_id": "682241c2180ff0244311e427"
+    "_id": "685af537ae5ce10a2de558ce"
 }

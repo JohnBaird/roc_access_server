@@ -1,36 +1,39 @@
-# updated: 2025-05-15 16:13:20
-# created: 2025-05-15 13:24:05
+# updated: 2025-06-25 17:10:48
+# created: 2025-06-25 17:10:09
 # filename: mongo_update_id_numbers.py
-#--------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------------
 from time import sleep
 from bson import ObjectId
 from pymongo import MongoClient, UpdateOne
 
-#--------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------------
 class MongoIdNumberUpdater:
-    def __init__(
-            self, 
-            insLogger
-        ):
-
+    def __init__(self, insLogger, host="localhost"):
         self.insLogger = insLogger
         self.class_name = "MongoIdNumberUpdater"
 
         try:
             self.client = MongoClient(
-                host="192.168.1.133",
+                host=host,
                 port=27017,
                 username="admin",
                 password="rf123",
                 authSource="admin"
             )
+
+            self.client.admin.command("ping")  # Force actual connection
             self.db = self.client["rww"]
             self.collection = self.db["watchlistedfaces"]
 
-            host, port = self.client.address
-            self.insLogger.log_info(
-                msg=f"[{self.class_name}--__init__] Connected to MongoDB at {host}:{port}"
-            )
+            if self.client.address:
+                conn_host, conn_port = self.client.address
+                self.insLogger.log_info(
+                    msg=f"[{self.class_name}--__init__] Connected to MongoDB at {conn_host}:{conn_port}"
+                )
+            else:
+                self.insLogger.log_warning(
+                    msg=f"[{self.class_name}--__init__] MongoClient created, but no server address available yet."
+                )
 
         except Exception as e:
             self.insLogger.log_error(
@@ -39,26 +42,35 @@ class MongoIdNumberUpdater:
             self.collection = None
 
         self.default_idnumbers = [
-            {"type": "Employee ID", "value": None},
-            {"type": "Badge ID", "value": None},
-            {"type": "PIN Number", "value": None},
-            {"type": "Access Zones", "value": None}
+            {"type": "Employee ID", "value": "x"},
+            {"type": "Badge ID", "value": "x"},
+            {"type": "PIN Number", "value": "x"},
+            {"type": "Access Zones", "value": "x"},
+            {"type": "Access Groups", "value": "x"},
+            {"type": "Verif Ident", "value": "false"}
         ]
 
-#--------------------------------------------------------------------------------------------------------------
-    def get_documents_to_update(self):
+    # ----------------------------------------------------------------------------------------------------------
+    def get_documents_to_update(self, overwrite=False):
         method = "get_documents_to_update"
-        query = {
-            "$or": [
-                {"idNumbers": {"$exists": False}},
-                {"idNumbers": {"$eq": []}},
-                {"internalId": {"$exists": False}},
-                {"internalId": None}
-            ]
-        }
+
+        if overwrite:
+            query = {}  # Match all documents
+        else:
+            query = {
+                "$or": [
+                    {"idNumbers": {"$exists": False}},
+                    {"idNumbers": {"$eq": []}},
+                    {"idNumbers.value": None},
+                    {"idNumbers.value": ""},
+                    {"internalId": {"$exists": False}},
+                    {"internalId": None},
+                    {"internalId": ""}
+                ]
+            }
 
         try:
-            docs = list(self.collection.find(query, {"_id": 1}))
+            docs = list(self.collection.find(query, {"_id": 1, "internalId": 1, "idNumbers": 1}))
             self.insLogger.log_info(
                 msg=f"[{self.class_name}--{method}] Found {len(docs)} documents to update."
             )
@@ -69,37 +81,10 @@ class MongoIdNumberUpdater:
             )
             return []
 
-#--------------------------------------------------------------------------------------------------------------
-    def preview_documents_missing_internal_id(self, limit=10):
-        method = "preview_documents_missing_internal_id"
-        query = {
-            "$or": [
-                {"idNumbers": {"$exists": False}},
-                {"idNumbers": {"$eq": []}},
-                {"internalId": {"$exists": False}},
-                {"internalId": None}
-            ]
-        }
-
-        try:
-            docs = self.collection.find(query, {"_id": 1, "internalId": 1}).limit(limit)
-            count = self.collection.count_documents(query)
-            self.insLogger.log_info(
-                msg=f"[{self.class_name}--{method}] Previewing {limit} of {count} documents needing internalId update:"
-            )
-            for doc in docs:
-                self.insLogger.log_info(
-                    msg=f"[{self.class_name}--{method}] _id={doc['_id']}, current internalId={doc.get('internalId')}"
-                )
-        except Exception as e:
-            self.insLogger.log_error(
-                msg=f"[{self.class_name}--{method}] Error during preview: {e}"
-            )
-
-#--------------------------------------------------------------------------------------------------------------
-    def update_documents_in_batches(self, batch_size=50, delay_seconds=2, dry_run=True):
+    # ----------------------------------------------------------------------------------------------------------
+    def update_documents_in_batches(self, batch_size=50, delay_seconds=2, dry_run=True, overwrite=True):
         method = "update_documents_in_batches"
-        docs_to_update = self.get_documents_to_update()
+        docs_to_update = self.get_documents_to_update(overwrite=overwrite)
         total = len(docs_to_update)
 
         for i in range(0, total, batch_size):
@@ -109,17 +94,41 @@ class MongoIdNumberUpdater:
 
             for doc in batch:
                 _id = doc["_id"]
-                generated_internal_id = str(ObjectId()).upper()
+                current_internal_id = doc.get("internalId")
+
+                has_existing_value = current_internal_id is not None and str(current_internal_id).strip() != ""
+                should_update_internal_id = overwrite or not has_existing_value
+
+                if overwrite:
+                    idnumbers_source = self.default_idnumbers
+                else:
+                    existing = doc.get("idNumbers")
+                    if existing:
+                        idnumbers_source = [
+                            {
+                                "type": entry.get("type"),
+                                "value": (
+                                    "false" if entry.get("type") == "Verif Ident"
+                                    else "x" if entry.get("value") in [None, ""] else entry.get("value")
+                                )
+                            }
+                            for entry in existing
+                        ]
+                    else:
+                        idnumbers_source = self.default_idnumbers
+
+                update_fields = {"idNumbers": idnumbers_source}
+
+                if should_update_internal_id:
+                    generated_internal_id = str(ObjectId()).upper()
+                    update_fields["internalId"] = generated_internal_id
+                else:
+                    generated_internal_id = current_internal_id  # For logging only
 
                 updates.append(
                     UpdateOne(
                         {"_id": _id},
-                        {
-                            "$set": {
-                                "idNumbers": self.default_idnumbers,
-                                "internalId": generated_internal_id
-                            }
-                        }
+                        {"$set": update_fields}
                     )
                 )
                 ids_in_batch.append((_id, generated_internal_id))
@@ -127,6 +136,12 @@ class MongoIdNumberUpdater:
                 self.insLogger.log_info(
                     msg=f"[{self.class_name}--{method}] Prepared update for _id={_id} with internalId={generated_internal_id} (dry_run={dry_run})"
                 )
+
+            if not updates:
+                self.insLogger.log_info(
+                    msg=f"[{self.class_name}--{method}] No updates prepared for batch {i // batch_size + 1} (all skipped)"
+                )
+                continue
 
             if not dry_run:
                 try:
@@ -154,19 +169,17 @@ class MongoIdNumberUpdater:
                 )
 
         self.insLogger.log_info(
-            msg=f"[{self.class_name}--{method}] Completed all batches. Total: {total}. Dry run: {dry_run}"
+            msg=f"[{self.class_name}--{method}] Completed all batches. Total: {total}. Dry run: {dry_run}. Overwrite: {overwrite}"
         )
 
-#--------------------------------------------------------------------------------------------------------------
-# Example usage:
+# --------------------------------------------------------------------------------------------------------------
+# Example usage
 import os
-LOG_PATH = "config/updater.log"
+from logger import CustomLogger  # Replace with your actual logger path
 
-# Delete existing log file if it exists
+LOG_PATH = "logs/updater.log"
 if os.path.exists(LOG_PATH):
     os.remove(LOG_PATH)
-
-from logger import CustomLogger  # Replace with your actual logger path
 
 if __name__ == "__main__":
     custom_logger = CustomLogger(
@@ -178,11 +191,18 @@ if __name__ == "__main__":
         util_prt0=False
     )
 
-    custom_logger.exclude_debug_entries(r".*Lock \d+ acquired on queue\.lock")
-    custom_logger.debug("Lock 548462840704 acquired on queue.lock")
+    custom_logger.exclude_debug_entries(r".*Lock \\d+ acquired on queue\\.lock")
     custom_logger.log_info(msg=f"[MONGO UPDATER] Starting update process")
 
-    insUpdater = MongoIdNumberUpdater(insLogger=custom_logger)
-    # insUpdater.preview_documents_missing_internal_id(limit=10)  # See what will be touched
-    insUpdater.update_documents_in_batches(dry_run=False)  # Set to False when ready
+    insUpdater = MongoIdNumberUpdater(
+        insLogger=custom_logger,
+        # host="192.168.1.104"
+    )
+
+    # insUpdater.preview_documents_missing_internal_id(limit=10)
+    insUpdater.update_documents_in_batches(
+        dry_run=False,
+        overwrite=False
+    )
+    
 #--------------------------------------------------------------------------------------------------------------

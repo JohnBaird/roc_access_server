@@ -21,8 +21,7 @@
         "perimeter_zone": 9,
         "access_zone_function": true,
         "anti_passback_function": false,
-        "watchlist_verif_dict": {
-        }
+        "watchlist_verif_dict": {}
     },
     "mqtt_settings": {
         "enable": true,
@@ -57,5 +56,6 @@
         "serial_number": "10440561491705",
         "program_version": "ROC-Access-Server V1.1.15",
         "program_updated": "2025-05-17 00:25:48"
-    }
+    },
+    "_id": "685b569dd2569ff8b2180055"
 }

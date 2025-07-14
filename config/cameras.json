@@ -1,7 +1,28 @@
 [
     {
-        "rocServer": "rocdemo1",
+        "rocServer": "beelink-02",
         "enable": true,
+        "cameraId": "{17251cd6-bcb4-4cbe-99ed-aab1e9aa3b97}",
+        "probeFaceCameraName": "AXIS P12 Mk III 104-186",
+        "cameraIp": "192.168.1.186",
+        "port": 554,
+        "username": "root",
+        "password": "root",
+        "path": "axis-media/media.amp",
+        "readerName": "RPi4-reader_104-34",
+        "readerIp": "192.168.1.34",
+        "readerSerial": "",
+        "verifIdent": false,
+        "updateZone": false,
+        "fromZone": 9,
+        "toZone": 10,
+        "watchlistIds": {
+            "ROC Morgan Town Users": "685991576d0b4b0014016c5e"
+        }
+    },
+    {
+        "rocServer": "rocdemo1",
+        "enable": false,
         "cameraId": "{059643c9-f5c1-43f1-9067-c6f73c12582d}",
         "probeFaceCameraName": "AxisCamera-P3225 121-221",
         "cameraIp": "192.168.1.221",
@@ -22,7 +43,7 @@
     },
     {
         "rocServer": "rocdemo1",
-        "enable": true,
+        "enable": false,
         "cameraId": "{15ebb7b7-e653-4a0b-946b-b9b000f1b7f3}",
         "probeFaceCameraName": "AxisCamera-P1204 121-203",
         "cameraIp": "192.168.1.203",
@@ -43,7 +64,7 @@
     },
     {
         "rocServer": "rocdemo1",
-        "enable": true,
+        "enable": false,
         "cameraId": "{1835cdb7-e5ea-412c-88ab-e153d5deed8c}",
         "probeFaceCameraName": "AxisCamera-P1265 121-90",
         "cameraIp": "192.168.1.90",

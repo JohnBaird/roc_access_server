@@ -22,6 +22,7 @@
         "access_zone_function": true,
         "anti_passback_function": false,
         "watchlist_verif_dict": {
+            "ROC Morgan Town Users": "685991576d0b4b0014016c5e"
         }
     },
     "mqtt_settings": {
@@ -52,10 +53,11 @@
         "client-136": "49269298794223"
     },
     "system_information": {
-        "hostname": "beelink-02",
-        "ip_address": "192.168.1.104",
-        "serial_number": "10440561491705",
-        "program_version": "ROC-Access-Server V1.1.15",
-        "program_updated": "2025-05-17 00:25:48"
-    }
+        "hostname": "rocdemo1",
+        "ip_address": "192.168.1.121",
+        "serial_number": "107289768771626",
+        "program_version": "ROC-Access-Server V1.1.12",
+        "program_updated": "2025-05-11 23:51:37"
+    },
+    "_id": "685af2b675584612e33305ca"
 }

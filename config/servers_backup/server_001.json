@@ -1,8 +1,8 @@
 {
     "type": "roc",
     "enable": true,
-    "serverName": "rocdemo1",
-    "serialNumber": "83544762879823",
-    "hostname": "192.168.1.121",
-    "_id": "682241c2180ff0244311e425"
+    "serverName": "beelink-02",
+    "serialNumber": "66440561491705",
+    "hostname": "192.168.1.104",
+    "_id": "685af537ae5ce10a2de558cc"
 }
